@@ -1,0 +1,7 @@
+region: 
+applications:
+  cluster-autoscaler:
+     enabled: true
+     namespace: kube-system
+     chartRepoURL: https://kubernetes.github.io/autoscaler
+     chartVersion: 9.36.0

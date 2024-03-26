@@ -1,0 +1,4 @@
+resources:
+  memory:
+    limits: 10Mi
+    requests: 10Mi

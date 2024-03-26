@@ -1,0 +1,10 @@
+clusterName: {{ .Values.clusterName }}
+
+rbac:
+  serviceAccount:
+    annotations:
+      eks.amazonaws.com/role-arn: arn:aws:iam::{{ .Values.region }}:{{ .Values.accountID }}:role/{{ .Values.clusterName }}-cluster-autoscaler
+
+resources:
+  cpu:
+    limits: 500Mi
