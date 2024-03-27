@@ -1,3 +1,5 @@
+{{ range $key,$val := .Values.applications }}
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -7,14 +9,16 @@ spec:
   project: default
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: {{ $val.namespace }}
   sources:
     - repoURL: 'https://prometheus-community.github.io/helm-charts'
       chart: prometheus
       targetRevision: 15.7.1
       helm:
         valueFiles:
-          - $values/values/prometheus.yaml
+          - $values/values/{{ $key }}/values.yaml
+          - $values/values/{{ $key }}/{{ $.values.clusterName }}.yaml
     - repoURL: https://github.com/JacobAmar/argo-test.git
-      targetRevision: HEAD
+      targetRevision: {{ $val.valuesRevision }}
       ref: values
+{{- end }}
