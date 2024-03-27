@@ -17,7 +17,7 @@ spec:
       helm:
         valueFiles:
           - $values/values/{{ $key }}/values.yaml
-          - $values/values/{{ $key }}/{{ $.values.clusterName }}.yaml
+          - $values/values/{{ $key }}/{{ $.Values.clusterName }}.yaml
     - repoURL: https://github.com/JacobAmar/argo-test.git
       targetRevision: {{ $val.valuesRevision }}
       ref: values
