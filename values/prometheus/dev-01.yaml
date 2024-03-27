@@ -1,2 +1,4 @@
 server:
   name: dev-01
+  persistentVolume:
+    enabled: true
