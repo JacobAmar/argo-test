@@ -5,3 +5,9 @@ applications:
      namespace: kube-system
      chartRepoURL: https://kubernetes.github.io/autoscaler
      chartVersion: 9.36.0
+     syncWave: -1
+  external-dns:
+      enabled: true
+      namespace: kube-system
+      chartRepoURL: https://charts.bitnami.com/bitnami
+      chartVersion: 5.0.0

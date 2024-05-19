@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-      path: multi-source-master
+      path: master
       repoURL: https://github.com/JacobAmar/argo-test.git
       targetRevision: HEAD
   destination:

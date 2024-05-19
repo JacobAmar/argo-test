@@ -12,10 +12,6 @@ spec:
     chart: {{ $key }}
     repoURL: {{ $val.chartRepoURL }}
     targetRevision: {{ $val.chartVersion }}
-    values: | 
-      {{ $skeletonValues := tpl ($.Files.Get (printf "values/%s/skeleton.yaml" $key)) $ | fromYaml }}
-      {{ $clusterValues := $.Files.Get (printf "values/%s/%s.yaml" $key $.Values.clusterName ) | fromYaml }}
-      {{- mustMergeOverwrite $skeletonValues $clusterValues | toYaml | nindent 6 }}
   destination:
     server: "https://kubernetes.default.svc"
     namespace: {{ $val.namespace }}
