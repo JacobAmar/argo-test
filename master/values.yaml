@@ -5,7 +5,7 @@ applications:
      namespace: monitoring
      type: helm
      chartRepoURL: https://charts.bitnami.com/bitnami
-     chartVersion: 1.14.5
+     chartVersion: 9.1.1
      syncWave: -1
   test-app:
       enabled: true
