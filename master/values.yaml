@@ -7,6 +7,9 @@ applications:
      chartRepoURL: https://charts.bitnami.com/bitnami
      chartVersion: 9.1.1
      syncWave: -1
+     syncOptions:
+       - ServerSideApply=true
+
   test-app:
       enabled: true
       path: test

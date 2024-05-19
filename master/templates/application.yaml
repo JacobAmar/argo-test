@@ -23,6 +23,11 @@ spec:
       automated: {}
       syncOptions:
       - CreateNamespace=true
+      {{ if $val.syncOptions }}
+      {{- range $val.syncOptions }}
+      - {{ . }}
+      {{- end }}
+      {{- end }}
   destination:
     server: "https://kubernetes.default.svc"
     namespace: {{ $val.namespace }}
