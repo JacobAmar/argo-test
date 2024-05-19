@@ -1,6 +1,6 @@
 region: 
 applications:
-  cluster-autoscaler:
+  cert-manager:
      enabled: true
      namespace: cert-manager
      type: helm
