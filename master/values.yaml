@@ -1,10 +1,10 @@
 region: 
 applications:
-  cert-manager:
+  kube-prometheus:
      enabled: true
-     namespace: cert-manager
+     namespace: monitoring
      type: helm
-     chartRepoURL: https://charts.jetstack.io
+     chartRepoURL: https://charts.bitnami.com/bitnami
      chartVersion: 1.14.5
      syncWave: -1
   test-app:
