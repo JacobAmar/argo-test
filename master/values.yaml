@@ -2,12 +2,14 @@ region:
 applications:
   cluster-autoscaler:
      enabled: true
-     namespace: kube-system
-     chartRepoURL: https://kubernetes.github.io/autoscaler
+     namespace: cert-manager
+     type: helm
+     chartRepoURL: https://charts.jetstack.io
      chartVersion: 9.36.0
      syncWave: -1
-  external-dns:
+  test-app:
       enabled: true
-      namespace: kube-system
-      chartRepoURL: https://charts.bitnami.com/bitnami
-      chartVersion: 5.0.0
+      path: test
+      namespace: test
+      chartRepoURL: https://github.com/JacobAmar/argo-test.git
+      chartVersion: HEAD

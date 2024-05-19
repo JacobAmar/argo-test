@@ -6,10 +6,17 @@ kind: Application
 metadata:
   name: {{ $key }}
   namespace: {{ $.Release.Namespace }}
+  {{- if $val.syncWave }}
+  argocd.argoproj.io/sync-wave: {{ $val.syncWave }}
+  {{- end }}
 spec:
   project: default
   source:
+  {{- if eq "helm" $val.type }}
     chart: {{ $key }}
+  {{- else }}
+    path: {{ $val.path }}
+  {{- end }}
     repoURL: {{ $val.chartRepoURL }}
     targetRevision: {{ $val.chartVersion }}
   destination:
