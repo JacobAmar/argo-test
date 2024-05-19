@@ -19,6 +19,9 @@ spec:
   {{- end }}
     repoURL: {{ $val.chartRepoURL }}
     targetRevision: {{ $val.chartVersion }}
+    syncPolicy:
+      automated:
+        selfHeal: true
   destination:
     server: "https://kubernetes.default.svc"
     namespace: {{ $val.namespace }}
